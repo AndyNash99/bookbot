@@ -23,13 +23,12 @@ def count_chars():
 
 def report():
     print(f"--- Begin report of books/{book_title}.txt ---")
-    print(f"{count_words()} words found in the document")
-    print()
-    char_counts = list(count_chars().items())
-    char_counts = list(filter(lambda t: t[0].isalpha(), char_counts))
+    print(f"{count_words()} words found in the document\n")
+    char_counts = list(filter(lambda t: t[0].isalpha(), count_chars().items()))
     char_counts.sort(reverse=True, key=lambda t: t[1])
     for key, value in char_counts:
         print(f"The '{key}' character was found {value} times")
+    print("--- End report ---")
 
 
 def main():
